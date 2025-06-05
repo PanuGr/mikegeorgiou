@@ -1,0 +1,59 @@
+@view-transition {
+    navigation: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    line-height: 1.75;
+    font-size: 18px;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: system-ui;
+    text-rendering: optimizeSpeed;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+svg,
+video,
+picture {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+p {
+    font-family: "Atkinson Hyperlegible", system-ui;
+    max-inline-size: clamp(45ch 65ch 85ch);
+    margin-inline: auto;
+}
+
+footer {
+    content-visibility: auto;
+    /* like loading lazy. it doesn't render the element until it's close to viewpoint*/
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation: none;
+        transition: none;
+    }
+}
