@@ -2,20 +2,6 @@
   "name": "mikegeorgiou",
   "version": "1.0.0",
   "description": "Mike's professional website. B2B/Portfolio",
-  "scripts": {
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "test": "npm exec html-validate ./dist/*/*.html"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "astro": "^5.7.12"
-  },
-  "devDependencies": {
-    "html-validate": "^9.5.3"
-  }
+  "author": "Panagiotis Panagiotakopoulos|DigiSolutions",
+  "license": "ISC"
 }
