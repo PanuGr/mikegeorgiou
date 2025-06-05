@@ -18,18 +18,6 @@
     list-style: none;
 }
 
-#nav-links li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-}
-
-#nav-links li a:hover, h1:hover {
-    background-color: #555;
-}
-
-/* Hide toggle button on larger screens */
 #menu-toggle {
     display: none;
     font-size: 24px;
@@ -37,6 +25,17 @@
     border: none;
     color: white;
     cursor: pointer;
+}
+
+/* Use :where() to group hover and focus for links */
+#nav-links li a:where(:hover, :focus-visible) {
+    background-color: #555;
+    outline: none;
+}
+
+/* Add focus ring for accessibility */
+#nav-links li a:focus-visible {
+    outline: 2px solid #fff;
 }
 
 /* Responsive Navigation */
@@ -61,13 +60,21 @@
         display: block;
     }
 
+    /* Use :has() to show nav when menu is toggled (if supported) */
+    nav:has(#nav-links.show) #nav-links {
+        transform: translateX(0);
+    }
+
+    /* Fallback for browsers without :has() */
     #nav-links.show {
         transform: translateX(0);
     }
 }
 
-/* Accessibility: Focus Styles */
-#nav-links li a:focus {
-    outline: 2px solid #fff;
-    background-color: #555;
+/* Style links without repeating selector */
+#nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
 }
