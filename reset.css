@@ -18,6 +18,7 @@ body {
     min-height: 100dvh;
     font-family: system-ui;
     text-rendering: optimizeSpeed;
+    padding: 1rem;
 }
 
 input,
@@ -38,11 +39,12 @@ picture {
 
 p {
     font-family: "Atkinson Hyperlegible", system-ui;
-    max-inline-size: clamp(45ch 65ch 85ch);
+    max-inline-size: clamp(45ch 65ch 75ch);
     margin-inline: auto;
 }
-
+header{margin-bottom: 4rem;}
 footer {
+    margin-block: 4rem;
     content-visibility: auto;
 
 }

@@ -1,0 +1,95 @@
+main {
+    max-width: 80%vw;
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+}
+
+.card-grid {
+    display: grid;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Both the image and the content will occupy the same grid area */
+.card-grid>img,
+.card-grid>.card-content-grid,
+.card-grid::before {
+    /* Also apply to the pseudo-element overlay */
+    grid-area: 1 / 1 / 2 / 2;
+    /* Shorthand for grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+    /* This places all of them in the first (and only) cell of the grid */
+}
+
+.card-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease;
+}
+
+/* Overlay for image darkening */
+.card-grid::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+    z-index: 1;
+    /* Place the overlay above the image but below content */
+}
+
+.card-content-grid {
+    display: flex;
+    /* Use flexbox for centering content within the overlay */
+    flex-direction: column;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-sizing: border-box;
+    z-index: 2;
+    /* Place content on top of the overlay */
+}
+
+.card-content-grid h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.card-content-grid p {
+    margin-bottom: 15px;
+}
+
+.card-content-grid a {
+    color: #00bcd4;
+    text-decoration: none;
+    border: 1px solid #00bcd4;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.card-content-grid a:hover {
+    background-color: #00bcd4;
+    color: black;
+}
+
+/* Hover State */
+.card-grid:hover img {
+    filter: brightness(60%);
+}
+
+.card-grid:hover::before {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.card-grid:hover .card-content-grid {
+    opacity: 1;
+    visibility: visible;
+}
