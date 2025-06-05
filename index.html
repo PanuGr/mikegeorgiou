@@ -24,7 +24,7 @@
             <ul id="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="mailto:@gmail.com">Contact</a></li>
-                <li><a href="#games">Our Games</a></li>
+                <li><a href="games.html">Our Games</a></li>
             </ul>
         </nav>
 
@@ -107,6 +107,12 @@
         // Close menu when clicking a link on small screens
         navLinks.addEventListener('click', function (e) {
             if (e.target.tagName === 'A') {
+                navLinks.classList.remove('show');
+            }
+        });
+        //close the menu when clicking outside the menu
+        window.addEventListener('click', function (e) {
+            if (!e.target.closest('#navbar') && !e.target.closest('#menu-toggle')) {
                 navLinks.classList.remove('show');
             }
         });
