@@ -41,7 +41,6 @@ p {
     max-inline-size: clamp(45ch 65ch 75ch);
     margin-inline: auto;
 }
-header{margin-bottom: 4rem;}
 footer {
     margin-top: 4rem;
     content-visibility: auto;

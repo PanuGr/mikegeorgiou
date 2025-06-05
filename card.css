@@ -1,5 +1,6 @@
 main {
-    max-width: 80%vw;
+    max-width: 80%;
+    margin: 8rem auto 4rem;
     display: grid;
     justify-items: center;
     gap: 1rem;
