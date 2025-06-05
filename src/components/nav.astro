@@ -3,84 +3,132 @@
 ---
 
 <style>
-/* Navigation Styles */
-#navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    transition: transform 0.3s ease;
-    z-index: 1000;
-}
-
-#nav-links {
-    display: flex;
-    list-style: none;
-}
-
-#menu-toggle {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-/* Use :where() to group hover and focus for links */
-#nav-links li a:where(:hover, :focus-visible) {
-    background-color: #555;
-    outline: none;
-}
-
-/* Add focus ring for accessibility */
-#nav-links li a:focus-visible {
-    outline: 2px solid #fff;
-}
-
-/* Responsive Navigation */
-@media (max-width: 768px) {
-    #nav-links {
+    /* Navigation Styles */
+    #navbar {
         position: fixed;
-        top: 10%;
-        right: 0;
-        width: max-content;
+        top: 0;
+        width: 100%;
         background-color: #333;
-        flex-direction: column;
-        transform: translateX(100%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
         transition: transform 0.3s ease;
-        padding: 10px;
+        z-index: 1000;
     }
 
-    #nav-links li {
-        margin: 20px 0;
+    #nav-links {
+        display: flex;
+        list-style: none;
     }
 
     #menu-toggle {
-        display: block;
+        display: none;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
     }
 
-    /* Use :has() to show nav when menu is toggled (if supported) */
-    nav:has(#nav-links.show) #nav-links {
-        transform: translateX(0);
+    /* Use :where() to group hover and focus for links */
+    #nav-links li a:where(:hover, :focus-visible) {
+        background-color: #555;
+        outline: none;
     }
 
-    /* Fallback for browsers without :has() */
-    #nav-links.show {
-        transform: translateX(0);
+    /* Add focus ring for accessibility */
+    #nav-links li a:focus-visible {
+        outline: 2px solid #fff;
     }
-}
 
-/* Style links without repeating selector */
-#nav-links li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-}
+    /* Responsive Navigation */
+    @media (max-width: 768px) {
+        #nav-links {
+            position: fixed;
+            top: 10%;
+            right: 0;
+            width: max-content;
+            background-color: #333;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            padding: 10px;
+        }
+
+        #nav-links li {
+            margin: 20px 0;
+        }
+
+        #menu-toggle {
+            display: block;
+        }
+
+        /* Use :has() to show nav when menu is toggled (if supported) */
+        nav:has(#nav-links.show) #nav-links {
+            transform: translateX(0);
+        }
+
+        /* Fallback for browsers without :has() */
+        #nav-links.show {
+            transform: translateX(0);
+        }
+    }
+
+    /* Style links without repeating selector */
+    #nav-links li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+    }
 </style>
+
+<nav id="navbar">
+    <h1><a href="">Mike's Website</a></h1>
+    <button type="button" id="menu-toggle" aria-label="Toggle navigation menu"
+        >☰</button
+    >
+    <ul id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="mailto:@gmail.com">Contact</a></li>
+        <li><a href="games.html">Our Games</a></li>
+    </ul>
+</nav>
+
+<script>
+    // Scroll-based show/hide navigation
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", function () {
+        let scrollTop = document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            navbar.style.transform = "translateY(-100%)"; // Hide on scroll down
+        } else {
+            navbar.style.transform = "translateY(0)"; // Show on scroll up
+        }
+        lastScrollTop = scrollTop;
+    });
+
+    // Toggle menu on small screens
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+    // Close menu when clicking a link on small screens
+    navLinks.addEventListener("click", function (e) {
+        if (e.target.tagName === "A") {
+            navLinks.classList.remove("show");
+        }
+    });
+    //close the menu when clicking outside the menu
+    window.addEventListener("click", function (e) {
+        if (!e.target.closest("#navbar") && !e.target.closest("#menu-toggle")) {
+            navLinks.classList.remove("show");
+        }
+    });
+</script>

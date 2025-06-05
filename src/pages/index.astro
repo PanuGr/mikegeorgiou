@@ -1,123 +1,55 @@
-<!DOCTYPE html>
+---
+import Nav from "../components/nav.astro";
+import Gamecard from "../components/gamecard.astro";
+import Head from "../components/head.astro";
+import "../reset.css";
+---
+
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <title>Mike's Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="nav.css">
-    <link rel="stylesheet" href="card.css">
-</head>
-
-<body>
-    <header>
-        <nav id="navbar">
-            <h1><a href="">Mike's Website</a></h1>
-            <button type="button" id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-            <ul id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="mailto:@gmail.com">Contact</a></li>
-                <li><a href="games.html">Our Games</a></li>
-            </ul>
-        </nav>
-
-    </header>
-    <main>
-        <section class="card-grid" tabindex="0">
-            <img src="https://placehold.co/300" alt="image">
-            <section class="card-content-grid">
-                <h2>Game's Title</h2>
-                <p>Description</p>
-                <a href="">Learn more</a>
-            </section>
-        </section>
-        <section class="card-grid" tabindex="0">
-            <img src="https://placehold.co/300" alt="image">
-            <section class="card-content-grid">
-                <h2>Game's Title</h2>
-                <p>Description</p>
-                <a href="">Learn more</a>
-            </section>
-        </section>
-        <section class="card-grid" tabindex="0">
-            <img src="https://placehold.co/300" alt="image">
-            <section class="card-content-grid">
-                <h2>Game's Title</h2>
-                <p>Description</p>
-                <a href="">Learn more</a>
-            </section>
-        </section>
-        <section class="card-grid" tabindex="0">
-            <img src="https://placehold.co/300" alt="image">
-            <section class="card-content-grid">
-                <h2>Game's Title</h2>
-                <p>Description</p>
-                <a href="">Learn more</a>
-            </section>
-        </section>
-        <section class="card-grid" tabindex="0">
-            <img src="https://placehold.co/300" alt="image">
-            <section class="card-content-grid">
-                <h2>Game's Title</h2>
-                <p>Description</p>
-                <a href="">Learn more</a>
-            </section>
-        </section>
-    </main>
-    <footer>
-        <section>
-            <h2 id="contact">Contact us!</h2>
-            <a href="mailto:@gmail.com">📧 @gmail.com</a>
-        </section>
-        <small> View our <a href="privacy.md" target="_blank" rel="noopener noreferrer">Privacy
-                policy</a>
-        </small>
-        <small>Copyright &copy;2025 - Mike's Website</small>
-        <small>Build by <a href="http://digisolutech.netlify.app" target="_blank">DigiSolutions</a></small>
-    </footer>
-    <script>
-        // Scroll-based show/hide navigation
-        let lastScrollTop = 0;
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', function () {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                navbar.style.transform = 'translateY(-100%)'; // Hide on scroll down
-            } else {
-                navbar.style.transform = 'translateY(0)'; // Show on scroll up
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <Head/>
+        <style>
+            main {
+                max-width: 80%;
+                margin: 8rem auto 4rem;
+                display: grid;
+                justify-items: center;
+                gap: 1rem;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
-            lastScrollTop = scrollTop;
-        });
+        </style>
+    </head>
 
-        // Toggle menu on small screens
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-
-        menuToggle.addEventListener('click', function () {
-            navLinks.classList.toggle('show');
-        });
-
-        // Close menu when clicking a link on small screens
-        navLinks.addEventListener('click', function (e) {
-            if (e.target.tagName === 'A') {
-                navLinks.classList.remove('show');
-            }
-        });
-        //close the menu when clicking outside the menu
-        window.addEventListener('click', function (e) {
-            if (!e.target.closest('#navbar') && !e.target.closest('#menu-toggle')) {
-                navLinks.classList.remove('show');
-            }
-        });
-
-    </script>
-</body>
-
+    <body>
+        <header>
+            <Nav />
+        </header>
+        <main>
+            <Gamecard title="Game's Title" desc="Game's short description" />
+            <Gamecard title="Game's Title" desc="Game's short description" />
+            <Gamecard title="Game's Title" desc="Game's short description" />
+        </main>
+        <footer>
+            <section>
+                <h2 id="contact">Contact us!</h2>
+                <a href="mailto:@gmail.com">📧 @gmail.com</a>
+            </section>
+            <small>
+                View our <a
+                    href="privacy.md"
+                    target="_blank"
+                    rel="noopener noreferrer">Privacy policy</a
+                >
+            </small>
+            <small>Copyright &copy;2025 - Mike's Website</small>
+            <small
+                >Build by <a
+                    href="http://digisolutech.netlify.app"
+                    target="_blank">DigiSolutions</a
+                ></small
+            >
+        </footer>
+    </body>
 </html>

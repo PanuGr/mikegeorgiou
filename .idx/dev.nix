@@ -14,6 +14,7 @@
     extensions = [
       "html-validate.vscode-html-validate"
       "yandeu.five-server"
+      "astro-build.astro-vscode"
     ];
   };
 }

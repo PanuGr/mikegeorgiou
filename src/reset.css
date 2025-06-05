@@ -1,6 +1,6 @@
-/* @view-transition {
+@view-transition {
     navigation: auto;
-} */
+}
 
 * {
     margin: 0;
@@ -41,6 +41,7 @@ p {
     max-inline-size: clamp(45ch 65ch 75ch);
     margin-inline: auto;
 }
+
 footer {
     margin-top: 4rem;
     content-visibility: auto;
