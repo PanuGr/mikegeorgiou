@@ -18,7 +18,6 @@ body {
     min-height: 100dvh;
     font-family: system-ui;
     text-rendering: optimizeSpeed;
-    padding: 1rem;
 }
 
 input,

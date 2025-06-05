@@ -81,15 +81,21 @@ main {
 }
 
 /* Hover State */
-.card-grid:hover img {
+.card-grid:where(:hover, :focus-within) img {
     filter: brightness(60%);
 }
 
-.card-grid:hover::before {
+.card-grid:where(:hover, :focus-within)::before {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.card-grid:hover .card-content-grid {
+.card-grid:where(:hover, :focus-within) .card-content-grid {
     opacity: 1;
     visibility: visible;
+}
+
+/* Optional: Focus outline for the card-grid itself */
+.card-grid:focus-within {
+    outline: 2px solid blue;
+    outline-offset: 2px;
 }
