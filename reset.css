@@ -44,7 +44,7 @@ p {
 
 footer {
     content-visibility: auto;
-    /* like loading lazy. it doesn't render the element until it's close to viewpoint*/
+
 }
 
 @media (prefers-reduced-motion: reduce) {
