@@ -1,0 +1,40 @@
+---
+import "../reset.css";
+import Nav from "../components/nav.astro";
+import Head from "../components/head.astro";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <Head title="Website's Name" desc="Website's short description" />
+    </head>
+
+    <body>
+        <header>
+            <Nav />
+        </header>
+        <slot/>
+        <footer>
+            <section>
+                <h2 id="contact">Contact us!</h2>
+                <a href="mailto:@gmail.com">📧 @gmail.com</a>
+            </section>
+            <small>
+                View our <a
+                    href="privacy.md"
+                    target="_blank"
+                    rel="noopener noreferrer">Privacy policy</a
+                >
+            </small>
+            <small>Copyright &copy;2025 - Mike's Website</small>
+            <small
+                >Build by <a
+                    href="http://digisolutech.netlify.app"
+                    target="_blank">DigiSolutions</a
+                ></small
+            >
+        </footer>
+    </body>
+</html>
