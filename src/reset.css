@@ -17,7 +17,7 @@ html {
 body {
     min-height: 100dvh;
     font-family: system-ui;
-    text-rendering: optimizeSpeed;
+    /* text-rendering: optimizeSpeed; no need with system-ui font */
 }
 
 input,

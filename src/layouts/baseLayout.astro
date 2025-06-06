@@ -2,13 +2,15 @@
 import "../reset.css";
 import Nav from "../components/nav.astro";
 import Head from "../components/head.astro";
+const {title, desc}=Astro.props
+
 ---
 
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <Head title="Website's Name" desc="Website's short description" />
+        <Head title={title} desc={desc} />
     </head>
 
     <body>
