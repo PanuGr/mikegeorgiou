@@ -3,8 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://panugr.github.io',
-    base: 'my-repo',
+    site: 'https://panugr.github.io/mikegeorgiou',
     prefetch: true,
     trailingSlash:"never"
 });
