@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mike's Games</title>
+    <meta name="description" content="" />
+    <!-- Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/nav.css">
+    <link rel="stylesheet" href="./assets/index.css">
+    <script defer>
+        // Scroll-based show/hide navigation
+        let lastScrollTop = 0;
+        const navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", function () {
+            let scrollTop = document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                navbar.style.transform = "translateY(-100%)"; // Hide on scroll down
+            } else {
+                navbar.style.transform = "translateY(0)"; // Show on scroll up
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Toggle menu on small screens
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("show");
+        });
+
+        // Close menu when clicking a link on small screens
+        navLinks.addEventListener("click", function (e) {
+            if (e.target.tagName === "A") {
+                navLinks.classList.remove("show");
+            }
+        });
+        //close the menu when clicking outside the menu
+        window.addEventListener("click", function (e) {
+            if (!e.target.closest("#navbar") && !e.target.closest("#menu-toggle")) {
+                navLinks.classList.remove("show");
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <h1><a href="/mikegeorgiou">Mike's Website</a></h1>
+            <button type="button" id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+            <ul id="nav-links">
+                <li><a href="/mikegeorgiou/about">About</a></li>
+                <li><a href="/mikegeorgiou/games">Our Games</a></li>
+                <li><a href="mailto:@gmail.com" target="_blank">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="card-grid" tabindex="0">
+            <img src="https://placehold.co/300" alt="image" />
+            <section class="card-content-grid">
+                <h2>Game's Title</h2>
+                <p>Game's description</p>
+                <a href="">Learn more</a>
+            </section>
+        </section>
+        <section class="card-grid" tabindex="0">
+            <img src="https://placehold.co/300" alt="image" />
+            <section class="card-content-grid">
+                <h2>Game's Title</h2>
+                <p>Game's description</p>
+                <a href="">Learn more</a>
+            </section>
+        </section>
+        <section class="card-grid" tabindex="0">
+            <img src="https://placehold.co/300" alt="image" />
+            <section class="card-content-grid">
+                <h2>Game's Title</h2>
+                <p>Game's description</p>
+                <a href="">Learn more</a>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h2 id="contact">Contact us!</h2>
+            <a href="mailto:@gmail.com">📧 @gmail.com</a>
+        </section>
+        <small>
+            View our <a href="privacy.md" target="_blank" rel="noopener noreferrer">Privacy policy</a>
+        </small>
+        <small>Copyright &copy;2025 - Mike's Website</small>
+        <small>Build by <a href="http://digisolutech.netlify.app" target="_blank">DigiSolutions</a></small>
+    </footer>
+</body>
+
+</html>
