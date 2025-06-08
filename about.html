@@ -49,41 +49,6 @@
             border-radius: 50%;
         }
     </style>
-    <script defer>
-        // Scroll-based show/hide navigation
-        let lastScrollTop = 0;
-        const navbar = document.getElementById("navbar");
-        window.addEventListener("scroll", function () {
-            let scrollTop = document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                navbar.style.transform = "translateY(-100%)"; // Hide on scroll down
-            } else {
-                navbar.style.transform = "translateY(0)"; // Show on scroll up
-            }
-            lastScrollTop = scrollTop;
-        });
-
-        // Toggle menu on small screens
-        const menuToggle = document.getElementById("menu-toggle");
-        const navLinks = document.getElementById("nav-links");
-
-        menuToggle.addEventListener("click", function () {
-            navLinks.classList.toggle("show");
-        });
-
-        // Close menu when clicking a link on small screens
-        navLinks.addEventListener("click", function (e) {
-            if (e.target.tagName === "A") {
-                navLinks.classList.remove("show");
-            }
-        });
-        //close the menu when clicking outside the menu
-        window.addEventListener("click", function (e) {
-            if (!e.target.closest("#navbar") && !e.target.closest("#menu-toggle")) {
-                navLinks.classList.remove("show");
-            }
-        });
-    </script>
 </head>
 
 <body>
@@ -170,5 +135,40 @@
         <small>Copyright &copy;2025 - Mike's Website</small>
         <small>Build by <a href="http://digisolutech.netlify.app" target="_blank">DigiSolutions</a></small>
     </footer>
+    <script>
+        // Scroll-based show/hide navigation
+        let lastScrollTop = 0;
+        const navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", function () {
+            let scrollTop = document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                navbar.style.transform = "translateY(-100%)"; // Hide on scroll down
+            } else {
+                navbar.style.transform = "translateY(0)"; // Show on scroll up
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Toggle menu on small screens
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("show");
+        });
+
+        // Close menu when clicking a link on small screens
+        navLinks.addEventListener("click", function (e) {
+            if (e.target.tagName === "A") {
+                navLinks.classList.remove("show");
+            }
+        });
+        //close the menu when clicking outside the menu
+        window.addEventListener("click", function (e) {
+            if (!e.target.closest("#navbar") && !e.target.closest("#menu-toggle")) {
+                navLinks.classList.remove("show");
+            }
+        });
+    </script>
 </body>
 </html>
