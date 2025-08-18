@@ -11,10 +11,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
     <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
     <style>
-        @view-transition {
+        /*  @view-transition {
             navigation: auto;
-        }
+        } */
 
         html {
             scroll-behavior: smooth;
@@ -72,11 +74,6 @@
         .game-card:hover {
             transform: translateY(-5px);
         }
-
-        .game-image {
-            height: 250px;
-            background: linear-gradient(45deg, #4a5568, #2d3748);
-        }
     </style>
 </head>
 
@@ -85,24 +82,23 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">
-                <i class="fas fa-chess-knight me-2"></i>BoardCraft Studios
-                <ion-icon name="shield-outline" class="me-2"></ion-icon>BoardCraft Studios
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#games">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#games">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+                <ion-icon name="shield-outline" class="me-2"></ion-icon>BoardCraft Studios</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#games">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#games">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -131,139 +127,8 @@
                 </div>
             </div>
 
-            <div class="row g-4">
-                <!-- Game 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card game-card border-0 shadow-sm h-100">
-                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
-                            <ion-icon name="trophy-outline" class="text-white opacity-25"
-                                style="font-size: 4rem;"></ion-icon>
-                            <span class="position-absolute top-0 end-0 m-3 badge bg-danger">Strategy</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Empire's Dawn</h5>
-                            <p class="card-text text-muted flex-grow-1">A strategic civilization-building game where
-                                players compete to establish the greatest empire through diplomacy, trade, and warfare.
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
-                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>2-4 Players</span>
-                                <span><i class="fas fa-clock me-1"></i>90 min</span>
-                                <span class="text-warning"><i class="fas fa-star"></i> 8.2</span>
-                            </div>
-                            <button class="btn btn-primary">Learn More</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4" id="gamesGrid">
 
-                <!-- Game 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card game-card border-0 shadow-sm h-100">
-                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
-                            <ion-icon name="rocket-outline" class="text-white opacity-25"
-                                style="font-size: 4rem;"></ion-icon>
-                            <span class="position-absolute top-0 end-0 m-3 badge bg-success">Sci-Fi</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Stellar Horizons</h5>
-                            <p class="card-text text-muted flex-grow-1">Explore the galaxy, colonize planets, and engage
-                                in epic space battles in this immersive space exploration adventure.</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
-                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>1-5 Players</span>
-                                <span><i class="fas fa-clock me-1"></i>120 min</span>
-                                <span class="text-warning"><i class="fas fa-star"></i> 8.7</span>
-                            </div>
-                            <button class="btn btn-primary">Learn More</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Game 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card game-card border-0 shadow-sm h-100">
-                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
-                            <ion-icon name="help-circle-outline" class="text-white opacity-25"
-                                style="font-size: 4rem;"></ion-icon>
-                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark">Mystery</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Midnight Manor</h5>
-                            <p class="card-text text-muted flex-grow-1">A cooperative mystery game where players must
-                                solve puzzles and uncover secrets before time runs out.</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
-                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>3-6 Players</span>
-                                <span><i class="fas fa-clock me-1"></i>60 min</span>
-                                <span class="text-warning"><i class="fas fa-star"></i> 8.0</span>
-                            </div>
-                            <button class="btn btn-primary">Learn More</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Game 4 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card game-card border-0 shadow-sm h-100">
-                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
-                            <ion-icon name="leaf-outline" class="text-white opacity-25"
-                                style="font-size: 4rem;"></ion-icon>
-                            <span class="position-absolute top-0 end-0 m-3 badge bg-info">Family</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Garden Grove</h5>
-                            <p class="card-text text-muted flex-grow-1">Build the most beautiful garden by collecting
-                                seeds, planting flowers, and attracting wildlife in this charming family game.</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
-                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>2-4 Players</span>
-                                <span><i class="fas fa-clock me-1"></i>45 min</span>
-                                <span class="text-warning"><i class="fas fa-star"></i> 7.8</span>
-                            </div>
-                            <button class="btn btn-primary">Learn More</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Game 5 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card game-card border-0 shadow-sm h-100">
-                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
-                            <ion-icon name="cash-outline" class="text-white opacity-25"
-                                style="font-size: 4rem;"></ion-icon>
-                            <span class="position-absolute top-0 end-0 m-3 badge bg-secondary">Economic</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Trade Winds</h5>
-                            <p class="card-text text-muted flex-grow-1">Navigate the seas of commerce in this economic
-                                strategy game where supply, demand, and timing determine success.</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
-                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>3-5 Players</span>
-                                <span><i class="fas fa-clock me-1"></i>90 min</span>
-                                <span class="text-warning"><i class="fas fa-star"></i> 8.4</span>
-                            </div>
-                            <button class="btn btn-primary">Learn More</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Game 6 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card game-card border-0 shadow-sm h-100">
-                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
-                            <ion-icon name="skull-outline" class="text-white opacity-25"
-                                style="font-size: 4rem;"></ion-icon>
-                            <span class="position-absolute top-0 end-0 m-3 badge bg-dark">Adventure</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Dragon's Quest</h5>
-                            <p class="card-text text-muted flex-grow-1">Embark on an epic fantasy adventure filled with
-                                monsters, treasures, and legendary heroes in this dungeon-crawling masterpiece.</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
-                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>1-4 Players</span>
-                                <span><i class="fas fa-clock me-1"></i>150 min</span>
-                                <span class="text-warning"><i class="fas fa-star"></i> 9.1</span>
-                            </div>
-                            <button class="btn btn-primary">Learn More</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -277,24 +142,24 @@
                     <p class="lead mb-5">Let's discuss how we can bring your board game vision to life with our decade
                         of expertise.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        <button class="btn btn-light btn-lg px-5">Start Your Project</button>
-                        <button class="btn btn-outline-light btn-lg px-5">
-                            <ion-icon name="mail-outline" class="me-2"></ion-icon>Get in Touch
-                        </button>
+                        <a href="" class="btn btn-light btn-lg px-5">Start Your Project</a>
+                        <a href="" class="btn btn-outline-light btn-lg px-5">
+                            Get in Touch
+                        </a>
                     </div>
                     <div class="row mt-5 pt-4">
-                        <div class="col-md-4">
-                            <ion-icon name="mail-outline" class="fa-2x mb-3"></ion-icon>
-                            <p class="mb-0">hello@boardcraftstudios.com</p>
-                        </div>
-                        <div class="col-md-4">
-                            <ion-icon name="call-outline" class="fa-2x mb-3"></ion-icon>
-                            <p class="mb-0">+1 (555) 123-4567</p>
-                        </div>
-                        <div class="col-md-4">
-                            <ion-icon name="location-outline" class="fa-2x mb-3"></ion-icon>
-                            <p class="mb-0">Seattle, WA</p>
-                        </div>
+                        <a href="mailto:" class="col-md-4">
+                            <ion-icon name="mail" size="large" class="text-white mb-3"></ion-icon>
+                            <p class="text-white mb-0">hello@boardcraftstudios.com</p>
+                        </a>
+                        <a href="tel:" class="col-md-4">
+                            <ion-icon name="call" size="large" class="text-white mb-3"></ion-icon>
+                            <p class="text-white mb-0">+1 (555) 123-4567</p>
+                        </a>
+                        <a class="col-md-4">
+                            <ion-icon name="location" size="large" class="text-white mb-3"></ion-icon>
+                            <p class="text-white mb-0">Athens, Greece</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -317,7 +182,50 @@
         </div>
     </footer>
     <script>
-        // Smooth scroll for navigation links
+        const games = ["game1.md", "game2.md"]; // list of md files
+
+        function parseFrontMatter(content) {
+            const match = /^---\n([\s\S]+?)\n---/.exec(content);
+            if (!match) return { attributes: {}, body: content };
+            const yaml = match[1];
+            const body = content.slice(match[0].length);
+            return { attributes: jsyaml.load(yaml), body };
+        }
+
+        const grid = document.getElementById("gamesGrid");
+
+        games.forEach(file => {
+            fetch("games/" + file)
+                .then(res => res.text())
+                .then(txt => {
+                    const { attributes } = parseFrontMatter(txt);
+
+                    // Create Bootstrap card
+                    const col = document.createElement("div");
+                    col.className = "col-lg-4 col-md-6";
+                    col.innerHTML = `
+                            <div class="card game-card border-0 shadow-sm h-100">
+                        <div class=" d-flex align-items-center justify-content-center position-relative">
+                            <img src="https://picsum.photos/400/250" alt="">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-danger">Strategy</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title fw-bold">Empire's Dawn</h3>
+                            <p class="card-text text-muted flex-grow-1">A strategic civilization-building game where
+                                players compete to establish the greatest empire through diplomacy, trade, and warfare.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
+                                <span><ion-icon name="people" aria-hidden="true" class="me-1"></ion-icon>2-4
+                                    Players</span>
+                                <span><ion-icon name="time" aria-hidden="true" class="me-1"></ion-icon>90 min</span>
+                            </div>
+                            <a href="" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                          `;
+                    grid.appendChild(col);
+                });
+        });
 
 
         // Simple click handlers for buttons

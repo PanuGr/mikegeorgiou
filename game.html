@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="title"></h1>
+        <img id="image" class="img-fluid mb-3" />
+        <div id="content"></div>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const gameId = urlParams.get("id");
+      
+        function parseFrontMatter(content) {
+          const match = /^---\n([\s\S]+?)\n---/.exec(content);
+          if (!match) return { attributes: {}, body: content };
+          const yaml = match[1];
+          const body = content.slice(match[0].length);
+          return { attributes: jsyaml.load(yaml), body };
+        }
+      
+        fetch(`games/${gameId}.md`)
+          .then(res => res.text())
+          .then(txt => {
+            const { attributes, body } = parseFrontMatter(txt);
+      
+            document.getElementById("title").textContent = attributes.title;
+            document.getElementById("image").src = attributes.image;
+            document.getElementById("content").innerHTML = marked.parse(body);
+          });
+      </script>
+      
+
+</body>
+
+</html>
