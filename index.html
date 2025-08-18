@@ -1,105 +1,334 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mike's Games</title>
-    <meta name="description" content="" />
-    <!-- Resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet" />
-    <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/nav.css">
-    <link rel="stylesheet" href="./assets/css/index.css">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoardCraft Studios - Premium Board Game Developers</title>
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=atkinson-hyperlegible:400,400i,700,700i" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <style>
+        @view-transition {
+            navigation: auto;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Atkinson Hyperlegible', sans-serif;
+            text-rendering: optimizeSpeed;
+        }
+
+        input,
+        button,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        img,
+        svg,
+        video,
+        picture {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        p {
+            max-inline-size: 75ch;
+            margin-inline: auto;
+        }
+
+        footer {
+            content-visibility: auto;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                animation: none;
+                transition: none;
+            }
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+        }
+
+        .game-card {
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-image {
+            height: 250px;
+            background: linear-gradient(45deg, #4a5568, #2d3748);
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav id="navbar">
-            <h1><a href="/mikegeorgiou">Mike's Website</a></h1>
-            <button type="button" id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-            <ul id="nav-links">
-                <li><a href="/mikegeorgiou/about">About</a></li>
-                <li><a href="/mikegeorgiou/games">Our Games</a></li>
-                <li><a href="mailto:@gmail.com" target="_blank">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="card-grid" tabindex="0">
-            <img src="https://placehold.co/300" alt="image" />
-            <section class="card-content-grid">
-                <h2>Game's Title</h2>
-                <p>Game's description</p>
-                <a href="">Learn more</a>
-            </section>
-        </section>
-        <section class="card-grid" tabindex="0">
-            <img src="https://placehold.co/300" alt="image" />
-            <section class="card-content-grid">
-                <h2>Game's Title</h2>
-                <p>Game's description</p>
-                <a href="">Learn more</a>
-            </section>
-        </section>
-        <section class="card-grid" tabindex="0">
-            <img src="https://placehold.co/300" alt="image" />
-            <section class="card-content-grid">
-                <h2>Game's Title</h2>
-                <p>Game's description</p>
-                <a href="">Learn more</a>
-            </section>
-        </section>
-    </main>
-    <footer>
-        <section>
-            <h2 id="contact">Contact us!</h2>
-            <a href="mailto:@gmail.com">📧 @gmail.com</a>
-        </section>
-        <small>
-            View our <a href="privacy.txt" target="_blank" rel="noopener noreferrer">Privacy policy</a>
-        </small>
-        <small>Copyright &copy;2025 - Mike's Website</small>
-        <small>Build by <a href="https://digisolutech.netlify.app" target="_blank">DigiSolutech</a></small>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-chess-knight me-2"></i>BoardCraft Studios
+                <ion-icon name="shield-outline" class="me-2"></ion-icon>BoardCraft Studios
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#games">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#games">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pb-5" style="padding-top: 120px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-3 fw-bold mb-4">Crafting Exceptional Board Games</h1>
+                    <p class="lead mb-4">10 years of experience. 4 expert developers. Countless unforgettable gaming
+                        experiences.</p>
+                    <p class="fs-5 text-white-50">Explore our portfolio of professionally designed and developed board
+                        games</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="py-5 bg-light" id="games">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">Our Games</h2>
+                    <p class="lead text-muted">Each game represents years of design, testing, and refinement</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Game 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card game-card border-0 shadow-sm h-100">
+                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
+                            <ion-icon name="trophy-outline" class="text-white opacity-25"
+                                style="font-size: 4rem;"></ion-icon>
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-danger">Strategy</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Empire's Dawn</h5>
+                            <p class="card-text text-muted flex-grow-1">A strategic civilization-building game where
+                                players compete to establish the greatest empire through diplomacy, trade, and warfare.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
+                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>2-4 Players</span>
+                                <span><i class="fas fa-clock me-1"></i>90 min</span>
+                                <span class="text-warning"><i class="fas fa-star"></i> 8.2</span>
+                            </div>
+                            <button class="btn btn-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card game-card border-0 shadow-sm h-100">
+                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
+                            <ion-icon name="rocket-outline" class="text-white opacity-25"
+                                style="font-size: 4rem;"></ion-icon>
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-success">Sci-Fi</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Stellar Horizons</h5>
+                            <p class="card-text text-muted flex-grow-1">Explore the galaxy, colonize planets, and engage
+                                in epic space battles in this immersive space exploration adventure.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
+                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>1-5 Players</span>
+                                <span><i class="fas fa-clock me-1"></i>120 min</span>
+                                <span class="text-warning"><i class="fas fa-star"></i> 8.7</span>
+                            </div>
+                            <button class="btn btn-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card game-card border-0 shadow-sm h-100">
+                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
+                            <ion-icon name="help-circle-outline" class="text-white opacity-25"
+                                style="font-size: 4rem;"></ion-icon>
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark">Mystery</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Midnight Manor</h5>
+                            <p class="card-text text-muted flex-grow-1">A cooperative mystery game where players must
+                                solve puzzles and uncover secrets before time runs out.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
+                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>3-6 Players</span>
+                                <span><i class="fas fa-clock me-1"></i>60 min</span>
+                                <span class="text-warning"><i class="fas fa-star"></i> 8.0</span>
+                            </div>
+                            <button class="btn btn-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card game-card border-0 shadow-sm h-100">
+                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
+                            <ion-icon name="leaf-outline" class="text-white opacity-25"
+                                style="font-size: 4rem;"></ion-icon>
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-info">Family</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Garden Grove</h5>
+                            <p class="card-text text-muted flex-grow-1">Build the most beautiful garden by collecting
+                                seeds, planting flowers, and attracting wildlife in this charming family game.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
+                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>2-4 Players</span>
+                                <span><i class="fas fa-clock me-1"></i>45 min</span>
+                                <span class="text-warning"><i class="fas fa-star"></i> 7.8</span>
+                            </div>
+                            <button class="btn btn-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card game-card border-0 shadow-sm h-100">
+                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
+                            <ion-icon name="cash-outline" class="text-white opacity-25"
+                                style="font-size: 4rem;"></ion-icon>
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-secondary">Economic</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Trade Winds</h5>
+                            <p class="card-text text-muted flex-grow-1">Navigate the seas of commerce in this economic
+                                strategy game where supply, demand, and timing determine success.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
+                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>3-5 Players</span>
+                                <span><i class="fas fa-clock me-1"></i>90 min</span>
+                                <span class="text-warning"><i class="fas fa-star"></i> 8.4</span>
+                            </div>
+                            <button class="btn btn-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card game-card border-0 shadow-sm h-100">
+                        <div class="game-image d-flex align-items-center justify-content-center position-relative">
+                            <ion-icon name="skull-outline" class="text-white opacity-25"
+                                style="font-size: 4rem;"></ion-icon>
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-dark">Adventure</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Dragon's Quest</h5>
+                            <p class="card-text text-muted flex-grow-1">Embark on an epic fantasy adventure filled with
+                                monsters, treasures, and legendary heroes in this dungeon-crawling masterpiece.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
+                                <span><ion-icon name="people-outline" class="me-1"></ion-icon>1-4 Players</span>
+                                <span><i class="fas fa-clock me-1"></i>150 min</span>
+                                <span class="text-warning"><i class="fas fa-star"></i> 9.1</span>
+                            </div>
+                            <button class="btn btn-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary text-white py-5" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Ready to Create Your Game?</h2>
+                    <p class="lead mb-5">Let's discuss how we can bring your board game vision to life with our decade
+                        of expertise.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <button class="btn btn-light btn-lg px-5">Start Your Project</button>
+                        <button class="btn btn-outline-light btn-lg px-5">
+                            <ion-icon name="mail-outline" class="me-2"></ion-icon>Get in Touch
+                        </button>
+                    </div>
+                    <div class="row mt-5 pt-4">
+                        <div class="col-md-4">
+                            <ion-icon name="mail-outline" class="fa-2x mb-3"></ion-icon>
+                            <p class="mb-0">hello@boardcraftstudios.com</p>
+                        </div>
+                        <div class="col-md-4">
+                            <ion-icon name="call-outline" class="fa-2x mb-3"></ion-icon>
+                            <p class="mb-0">+1 (555) 123-4567</p>
+                        </div>
+                        <div class="col-md-4">
+                            <ion-icon name="location-outline" class="fa-2x mb-3"></ion-icon>
+                            <p class="mb-0">Seattle, WA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 BoardCraft Studios. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3"><ion-icon name="logo-linkedin"></ion-icon></a>
+                    <a href="#" class="text-white me-3"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#" class="text-white"><ion-icon name="logo-instagram"></ion-icon></a>
+                </div>
+            </div>
+        </div>
     </footer>
     <script>
-        // Scroll-based show/hide navigation
-        let lastScrollTop = 0;
-        const navbar = document.getElementById("navbar");
-        window.addEventListener("scroll", function () {
-            let scrollTop = document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                navbar.style.transform = "translateY(-100%)"; // Hide on scroll down
-            } else {
-                navbar.style.transform = "translateY(0)"; // Show on scroll up
-            }
-            lastScrollTop = scrollTop;
-        });
+        // Smooth scroll for navigation links
 
-        // Toggle menu on small screens
-        const menuToggle = document.getElementById("menu-toggle");
-        const navLinks = document.getElementById("nav-links");
 
-        menuToggle.addEventListener("click", function () {
-            navLinks.classList.toggle("show");
-        });
-
-        // Close menu when clicking a link on small screens
-        navLinks.addEventListener("click", function (e) {
-            if (e.target.tagName === "A") {
-                navLinks.classList.remove("show");
-            }
-        });
-        //close the menu when clicking outside the menu
-        window.addEventListener("click", function (e) {
-            if (!e.target.closest("#navbar") && !e.target.closest("#menu-toggle")) {
-                navLinks.classList.remove("show");
-            }
+        // Simple click handlers for buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function () {
+                if (this.textContent.includes('Learn More')) {
+                    console.log('Navigate to game details page');
+                } else if (this.textContent.includes('Start Your Project') || this.textContent.includes('Get in Touch')) {
+                    console.log('Open contact form or redirect to contact');
+                }
+            });
         });
     </script>
 </body>
