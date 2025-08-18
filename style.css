@@ -1,0 +1,23 @@
+@view-transition {
+    navigation: auto;
+} 
+html {
+    scroll-behavior: smooth;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation: none;
+        transition: none;
+    }
+}
