@@ -41,6 +41,11 @@
         .hero-gradient {
             background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
         }
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
         .game-card {
             transition: transform 0.3s ease;
@@ -103,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="row g-4" id="gamesGrid">
+            <div class="row g-4 grid" id="gamesGrid">
 
             </div>
         </div>
@@ -152,9 +157,9 @@
 
                     // Create Bootstrap card
                     const col = document.createElement("div");
-                    col.className = "col-lg-4 col-md-6";
+                    col.className = "d-grid";
                     col.innerHTML = `
-                            <article class="card game-card border-0 shadow-sm ">
+                            <article class="card game-card border-0 shadow-sm">
                         <div class=" d-flex align-items-center justify-content-center position-relative">
                             <img src="${attributes.image}" alt="${attributes.title}" class="img-fluid">
                             <span class="position-absolute top-0 end-0 m-3 badge bg-danger">${attributes.service}</span>
