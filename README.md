@@ -15,3 +15,6 @@ https://briegercreative.com/
 - netlify.toml (config file)
 - game1.md (file for each game)
 - games.json
+
+## Games
+The fileName should be the same with the id
