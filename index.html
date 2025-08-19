@@ -10,8 +10,8 @@
     <link href="https://fonts.bunny.net/css?family=atkinson-hyperlegible:400,400i,700,700i" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
     <style>
@@ -30,7 +30,7 @@
         }
 
         p {
-            max-inline-size: 75ch;
+            max-inline-size: 45ch;
             margin-inline: auto;
         }
 
@@ -57,20 +57,21 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">
-                <ion-icon name="shield-outline" class="me-2"></ion-icon>BoardCraft Studios</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <img src="logo.png" alt="logo" class="w-25"><span>BoardCraft Studios</span></a>
+            <button aria-label="Open mobile navigation" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#games">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#games">Services</a>
+                        <a class="nav-link" href="services.html">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -93,7 +94,7 @@
     </section>
 
     <!-- Games Section -->
-    <section class="py-5 bg-light" id="games">
+    <section class="py-5 bg-light">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-8 mx-auto text-center">
@@ -109,31 +110,16 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-primary text-white py-5" id="contact">
+    <section class="bg-primary text-white py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-4">Ready to Create Your Game?</h2>
+                    <h2 class="display-4 fw-bold mb-4">Ready to Create Your Game?</h2>
                     <p class="lead mb-5">Let's discuss how we can bring your board game vision to life with our decade
                         of expertise.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        <a href="" class="btn btn-light btn-lg px-5">Start Your Project</a>
-                        <a href="" class="btn btn-outline-light btn-lg px-5">
+                        <a href="contact.html" class="btn btn-light btn-lg px-5">
                             Get in Touch
-                        </a>
-                    </div>
-                    <div class="row mt-5 pt-4">
-                        <a href="mailto:" class="col-md-4">
-                            <ion-icon name="mail" size="large" class="text-white mb-3"></ion-icon>
-                            <p class="text-white mb-0">hello@boardcraftstudios.com</p>
-                        </a>
-                        <a href="tel:" class="col-md-4">
-                            <ion-icon name="call" size="large" class="text-white mb-3"></ion-icon>
-                            <p class="text-white mb-0">+1 (555) 123-4567</p>
-                        </a>
-                        <a class="col-md-4">
-                            <ion-icon name="location" size="large" class="text-white mb-3"></ion-icon>
-                            <p class="text-white mb-0">Athens, Greece</p>
                         </a>
                     </div>
                 </div>
@@ -142,23 +128,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 BoardCraft Studios. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white me-3"><ion-icon name="logo-linkedin"></ion-icon></a>
-                    <a href="#" class="text-white me-3"><ion-icon name="logo-twitter"></ion-icon></a>
-                    <a href="#" class="text-white"><ion-icon name="logo-instagram"></ion-icon></a>
-                </div>
-            </div>
-        </div>
+    <footer class="bg-dark text-white py-4 text-center">
+        <small class="">&copy; <span id="currentYear"></span> BoardCraft Studios. All rights reserved.</small>
     </footer>
     <script>
-        const games = ["game1.md", "game2.md"]; // list of md files
-
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        const games = ["DarkestDungeontheBoardGame.md", "SuperFantasyBrawl.md"]; // list of md files
+        //Don't touch. This reads the markdown files
         function parseFrontMatter(content) {
             const match = /^---\n([\s\S]+?)\n---/.exec(content);
             if (!match) return { attributes: {}, body: content };
@@ -166,9 +142,8 @@
             const body = content.slice(match[0].length);
             return { attributes: jsyaml.load(yaml), body };
         }
-
+        //This creates the cards. Modify the "col.innerHTML" to your liking.
         const grid = document.getElementById("gamesGrid");
-
         games.forEach(file => {
             fetch("games/" + file)
                 .then(res => res.text())
@@ -179,40 +154,42 @@
                     const col = document.createElement("div");
                     col.className = "col-lg-4 col-md-6";
                     col.innerHTML = `
-                            <div class="card game-card border-0 shadow-sm h-100">
+                            <article class="card game-card border-0 shadow-sm ">
                         <div class=" d-flex align-items-center justify-content-center position-relative">
-                            <img src="https://picsum.photos/400/250" alt="">
-                            <span class="position-absolute top-0 end-0 m-3 badge bg-danger">Strategy</span>
+                            <img src="${attributes.image}" alt="${attributes.title}" class="img-fluid">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-danger">${attributes.service}</span>
                         </div>
                         <div class="card-body d-flex flex-column">
-                            <h3 class="card-title fw-bold">Empire's Dawn</h3>
-                            <p class="card-text text-muted flex-grow-1">A strategic civilization-building game where
-                                players compete to establish the greatest empire through diplomacy, trade, and warfare.
-                            </p>
+                            <h3 class="card-title fw-bold">${attributes.title}</h3>
+                            <p class="card-text text-muted flex-grow-1">${attributes.shortDescription}</p>
                             <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
-                                <span><ion-icon name="people" aria-hidden="true" class="me-1"></ion-icon>2-4
+                                <span><i aria-hidden="true" class="bi bi-people-fill me-1"></i>${attributes.players}
                                     Players</span>
-                                <span><ion-icon name="time" aria-hidden="true" class="me-1"></ion-icon>90 min</span>
+                                <span><i aria-hidden="true" class="bi bi-clock-fill me-1"></i>${attributes.time} min</span>
+                                 <span><i aria-hidden="true" class="bi bi-star-fill me-1"></i>${attributes.rating} </span>
                             </div>
-                            <a href="" class="btn btn-primary">Learn More</a>
+                            <a href="game.html?id=${attributes.id}" class="btn btn-primary">View Details</a>
                         </div>
-                    </div>
+                    </article>
                           `;
                     grid.appendChild(col);
                 });
         });
 
+        fetch("site.json")
+            .then(res => res.json())
+            .then(data => {
+                // document.getElementById("currentYear").textContent = data.currentYear;
 
-        // Simple click handlers for buttons
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function () {
-                if (this.textContent.includes('Learn More')) {
-                    console.log('Navigate to game details page');
-                } else if (this.textContent.includes('Start Your Project') || this.textContent.includes('Get in Touch')) {
-                    console.log('Open contact form or redirect to contact');
-                }
+                /* For array of items 
+                const servicesList = document.getElementById("services");
+                data.services.forEach(s => {
+                    const li = document.createElement("li");
+                    li.textContent = s;
+                    servicesList.appendChild(li);
+                }); */
             });
-        });
+
     </script>
 </body>
 
