@@ -17,4 +17,9 @@ https://briegercreative.com/
 - games.json
 
 ## Games
-The fileName should be the same with the id
+**To add a new game:**
+1. Create games/gameName.md
+2. The fileName should be the same with the id
+3. Change the front matter (id, title, image, shortDescription).
+4. Write their content in Markdown.
+5. Add "gameName.md" to the games array in index.html.
