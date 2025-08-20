@@ -1,19 +1,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <meta name="description" content="" />
-    <!-- Resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet" />
-    <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/nav.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - BoardCraft Studios</title>
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="app.js"></script>
     <style>
         hr {
             width: 70vw;
@@ -52,26 +48,44 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <img src="logo.png" alt="logo" width="30" height="24" class="d-inline-block align-text-top">
+                <span>BoardCraft Studios</span>
+            </a>
+            <button aria-label="Open mobile navigation" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <header>
-        <nav id="navbar">
-            <h1><a href="/mikegeorgiou">Mike's Website</a></h1>
-            <button type="button" id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-            <ul id="nav-links">
-                <li><a href="/mikegeorgiou/about">About</a></li>
-                <li><a href="/mikegeorgiou/games">Our Games</a></li>
-                <li><a href="mailto:@gmail.com" target="_blank">Contact</a></li>
-            </ul>
-        </nav>
-        <h1>Meet The Team</h1>
-        <hr />
+
     </header>
     <main>
         <article>
             <img width="100" src="https://placehold.co/100" alt="very short description of dev1" />
             <h2>Developer 1</h2>
             <a href="" target="_blank" rel="noreferrer" aria-label="Follow on Linkedin">
-                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-linkedin"
-                    viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
+                    class="bi bi-linkedin" viewBox="0 0 16 16">
                     <path
                         d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
                     </path>
@@ -99,8 +113,8 @@
             <img src="https://placehold.co/100" width="100" alt="very short desc of dev2" />
             <h2>2 Developer</h2>
             <a href="" target="_blank" rel="noreferrer" aria-label="Follow on Linkedin">
-                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-linkedin"
-                    viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
+                    class="bi bi-linkedin" viewBox="0 0 16 16">
                     <path
                         d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
                     </path>
@@ -124,51 +138,10 @@
             </p>
         </article>
     </main>
-    <footer>
-        <section>
-            <h2 id="contact">Contact us!</h2>
-            <a href="mailto:@gmail.com">📧 @gmail.com</a>
-        </section>
-        <small>
-            View our <a href="privacy.md" target="_blank" rel="noopener noreferrer">Privacy policy</a>
-        </small>
-        <small>Copyright &copy;2025 - Mike's Website</small>
-        <small>Build by <a href="https://digisolutech.netlify.app" target="_blank">DigiSolutech</a></small>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 text-center">
+        <small>&copy; <span></span> BoardCraft Studios. All rights reserved.</small>
     </footer>
-    <script>
-        // Scroll-based show/hide navigation
-        let lastScrollTop = 0;
-        const navbar = document.getElementById("navbar");
-        window.addEventListener("scroll", function () {
-            let scrollTop = document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                navbar.style.transform = "translateY(-100%)"; // Hide on scroll down
-            } else {
-                navbar.style.transform = "translateY(0)"; // Show on scroll up
-            }
-            lastScrollTop = scrollTop;
-        });
-
-        // Toggle menu on small screens
-        const menuToggle = document.getElementById("menu-toggle");
-        const navLinks = document.getElementById("nav-links");
-
-        menuToggle.addEventListener("click", function () {
-            navLinks.classList.toggle("show");
-        });
-
-        // Close menu when clicking a link on small screens
-        navLinks.addEventListener("click", function (e) {
-            if (e.target.tagName === "A") {
-                navLinks.classList.remove("show");
-            }
-        });
-        //close the menu when clicking outside the menu
-        window.addEventListener("click", function (e) {
-            if (!e.target.closest("#navbar") && !e.target.closest("#menu-toggle")) {
-                navLinks.classList.remove("show");
-            }
-        });
-    </script>
 </body>
+
 </html>
