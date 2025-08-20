@@ -224,7 +224,7 @@
         const services = [];
 
         Promise.all(games.map(file =>
-            fetch("games/" + file)
+            fetch("./games/" + file)
                 .then(res => res.text())
                 .then(txt => {
                     const { attributes } = parseFrontMatter(txt);
