@@ -6,21 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BoardCraft Studios - Premium Board Game Developers</title>
     <link rel="shortcut icon" href="" type="image/x-icon">
-    <!--  <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=atkinson-hyperlegible:400,400i,700,700i" rel="stylesheet" /> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
+    <script defer src="app.js"></script>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            /*  font-family: 'Atkinson Hyperlegible', sans-serif; */
             text-rendering: optimizeSpeed;
         }
 
@@ -113,10 +107,15 @@
                     <p class="lead text-muted">Each game represents years of design, testing, and refinement</p>
                 </div>
             </div>
-
-            <div class="row g-4 grid" id="gamesGrid">
-
+            <!-- Filter Buttons -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap justify-content-center gap-3" id="filterButtons">
+                        <!-- Buttons will be populated dynamically -->
+                    </div>
+                </div>
             </div>
+            <div class="row g-4 grid" id="gamesGrid"></div>
         </div>
     </section>
 
@@ -132,6 +131,8 @@
                         <a href="contact.html" class="btn btn-light btn-lg px-5">
                             Get in Touch
                         </a>
+                        <a href="about.html" class="btn btn-outline-light btn-lg px-5">
+                            Meet the Team</a>
                     </div>
                 </div>
             </div>
@@ -140,67 +141,121 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 text-center">
-        <small class="">&copy; <span id="currentYear"></span> BoardCraft Studios. All rights reserved.</small>
+        <small class="">&copy; <span></span> BoardCraft Studios. All rights reserved.</small>
     </footer>
     <script>
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
         const games = ["DarkestDungeon.md", "SuperFantasyBrawl.md"]; // list of md files
-        //Don't touch. This reads the markdown files
-        function parseFrontMatter(content) {
-            const match = /^---\n([\s\S]+?)\n---/.exec(content);
-            if (!match) return { attributes: {}, body: content };
-            const yaml = match[1];
-            const body = content.slice(match[0].length);
-            return { attributes: jsyaml.load(yaml), body };
+        let allGamesData = []; // Store all games data for filtering
+
+        // Create filter buttons
+        function createFilterButtons(services) {
+            const filterButtons = document.getElementById("filterButtons");
+            const uniqueServices = ['all', ...new Set(services)];
+
+            uniqueServices.forEach((service, index) => {
+                const button = document.createElement("button");
+                button.className = index === 0 ? "btn btn-primary filter-btn" : "btn btn-outline-primary filter-btn";
+                button.setAttribute("data-filter", service);
+                button.textContent = service === 'all' ? 'All Games' : service;
+                filterButtons.appendChild(button);
+            });
+
+            // Add event listeners to filter buttons
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Update active button styling
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.className = 'btn btn-outline-primary filter-btn';
+                    });
+                    this.className = 'btn btn-primary filter-btn';
+
+                    // Filter cards
+                    filterGames(filterValue);
+                });
+            });
         }
-        //This creates the cards. Modify the "col.innerHTML" to your liking.
+
+        // Filter games function
+        function filterGames(filterValue) {
+            const gameCards = document.querySelectorAll('[data-service]');
+
+            gameCards.forEach(card => {
+                const cardService = card.getAttribute('data-service').toLowerCase();
+                const shouldShow = filterValue === 'all' || cardService === filterValue.toLowerCase();
+
+                if (shouldShow) {
+                    card.style.visibility = 'initial';
+                    card.style.opacity = '0';
+
+                    // Animate in
+                    setTimeout(() => {
+                        card.style.transition = 'opacity 0.3s ease';
+                        card.style.opacity = '1';
+
+                    }, 50);
+                } else {
+                    card.style.transition = 'opacity 0.3s ease';
+
+
+                    // Hide after animation
+                    setTimeout(() => {
+                        card.style.visibility = 'hidden';
+                    }, 300);
+                }
+            });
+        }
+
+        // Create game card
+        function createGameCard(attributes) {
+            const col = document.createElement("div");
+            col.className = "d-grid";
+            col.setAttribute('data-service', attributes.service);
+            col.innerHTML = `
+                <article class="card game-card border-0 shadow-sm h-100">
+                    <div class="d-flex align-items-center justify-content-center position-relative">
+                        <img src="${attributes.image}" alt="${attributes.title}" class="img-fluid">
+                        <span class="position-absolute top-0 end-0 m-3 badge bg-danger">${attributes.service}</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">${attributes.title}</h5>
+                        <p class="card-text text-muted flex-grow-1">${attributes.shortDescription}</p>
+                        <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
+                            <span><i class="bi bi-people-fill me-1"></i>${attributes.players} Players</span>
+                            <span><i class="bi bi-clock-fill me-1"></i>${attributes.time} min</span>
+                            <span class="text-warning"><i class="bi bi-star-fill me-1"></i>${attributes.rating}</span>
+                        </div>
+                        <a href="game.html?id=${attributes.id}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </article>
+            `;
+            return col;
+        }
+
+        // Load games and create filter buttons
         const grid = document.getElementById("gamesGrid");
-        games.forEach(file => {
+        const services = [];
+
+        Promise.all(games.map(file =>
             fetch("games/" + file)
                 .then(res => res.text())
                 .then(txt => {
                     const { attributes } = parseFrontMatter(txt);
+                    allGamesData.push(attributes);
+                    services.push(attributes.service);
+                    return attributes;
+                })
+        )).then(allGames => {
+            // Create filter buttons first
+            createFilterButtons(services);
 
-                    // Create Bootstrap card
-                    const col = document.createElement("div");
-                    col.className = "d-grid";
-                    col.innerHTML = `
-                            <article class="card game-card border-0 shadow-sm">
-                        <div class=" d-flex align-items-center justify-content-center position-relative">
-                            <img src="${attributes.image}" alt="${attributes.title}" class="img-fluid">
-                            <span class="position-absolute top-0 end-0 m-3 badge bg-danger">${attributes.service}</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="card-title fw-bold">${attributes.title}</h3>
-                            <p class="card-text text-muted flex-grow-1">${attributes.shortDescription}</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3 small text-muted">
-                                <span><i aria-hidden="true" class="bi bi-people-fill me-1"></i>${attributes.players}
-                                    Players</span>
-                                <span><i aria-hidden="true" class="bi bi-clock-fill me-1"></i>${attributes.time} min</span>
-                                 <span><i aria-hidden="true" class="bi bi-star-fill me-1"></i>${attributes.rating} </span>
-                            </div>
-                            <a href="game.html?id=${attributes.id}" class="btn btn-primary">View Details</a>
-                        </div>
-                    </article>
-                          `;
-                    grid.appendChild(col);
-                });
-        });
-
-        fetch("site.json")
-            .then(res => res.json())
-            .then(data => {
-                // document.getElementById("currentYear").textContent = data.currentYear;
-
-                /* For array of items 
-                const servicesList = document.getElementById("services");
-                data.services.forEach(s => {
-                    const li = document.createElement("li");
-                    li.textContent = s;
-                    servicesList.appendChild(li);
-                }); */
+            // Then create all game cards
+            allGames.forEach(attributes => {
+                const gameCard = createGameCard(attributes);
+                grid.appendChild(gameCard);
             });
-
+        });
     </script>
 </body>
 
