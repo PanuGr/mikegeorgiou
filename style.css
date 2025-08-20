@@ -1,16 +1,23 @@
 @view-transition {
     navigation: auto;
-} 
+}
+
 html {
     scroll-behavior: smooth;
 }
 
-input,
-button,
-textarea,
-select {
-    font: inherit;
+body {
+    text-rendering: optimizeSpeed;
 }
+
+footer {
+    content-visibility: auto;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
