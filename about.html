@@ -1,50 +1,28 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - BoardCraft Studios</title>
-    <link rel="shortcut icon" href="" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Resource hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <!-- CSS - critical first -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="app.js"></script>
-    <style>
-        hr {
-            width: 70vw;
-            margin: auto;
-        }
-
-        h1:not(nav h1) {
-            margin-top: 4rem;
-            text-align: center;
-        }
-
-        main {
-            display: grid;
-            justify-content: center;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-block-start: 4rem;
-
-            svg {
-                margin-block-end: 1rem;
-            }
-
-            h2 {
-                margin-block-start: 1rem;
-            }
-        }
-
-        p {
-            text-align: justify;
-        }
-
-        img {
-            border-radius: 50%;
-        }
-    </style>
 </head>
 
 <body>
@@ -76,68 +54,289 @@
             </div>
         </div>
     </nav>
-    <header>
 
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white" style="padding-top: 120px; padding-bottom: 80px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">About BoardCraft Studios</h1>
+                    <p class="lead mb-4">Passionate creators of exceptional board game experiences</p>
+                    <p class="fw-bold fs-5 text-white-50">Crafting games that bring people together since 2015</p>
+                </div>
+            </div>
+        </div>
     </header>
+
     <main>
-        <article>
-            <img width="100" src="https://placehold.co/100" alt="very short description of dev1" />
-            <h2>Developer 1</h2>
-            <a href="" target="_blank" rel="noreferrer" aria-label="Follow on Linkedin">
-                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
-                    class="bi bi-linkedin" viewBox="0 0 16 16">
-                    <path
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                    </path>
-                </svg>
-            </a>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                nemo veritatis itaque tempora provident labore, nulla porro ex
-                perspiciatis eligendi! Velit nulla rerum dolorum, quos
-                consectetur amet corrupti sequi nostrum. <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-                nostrum, soluta at dolor dolorum minus aut id doloribus ea labore
-                distinctio architecto earum accusantium, repudiandae sit reprehenderit
-                doloremque vitae ut.
-                <br />
-                <br />
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto velit
-                totam aperiam sit voluptate dolor laborum hic, vero, quae qui ratione
-                consectetur dignissimos quaerat possimus deserunt eaque eos doloremque.
-                Molestias.
-            </p>
-        </article>
-        <article>
-            <img src="https://placehold.co/100" width="100" alt="very short desc of dev2" />
-            <h2>2 Developer</h2>
-            <a href="" target="_blank" rel="noreferrer" aria-label="Follow on Linkedin">
-                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor"
-                    class="bi bi-linkedin" viewBox="0 0 16 16">
-                    <path
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                    </path>
-                </svg>
-            </a>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Perspiciatis voluptatem aperiam inventore deserunt quisquam
-                explicabo tempore, accusamus numquam vel, sequi unde nesciunt at
-                aspernatur eos corrupti repellendus? Quia, id sit!
-                <br /><br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                consequatur impedit ipsa ex sunt consequuntur laboriosam temporibus
-                totam aliquam ea? Quos quod aperiam minima nesciunt deserunt illum
-                consequatur eaque tempore!
-                <br /><br />
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt
-                ab, sapiente temporibus laboriosam omnis consectetur cum nulla facilis
-                alias quisquam nihil dolorem odio quas recusandae est adipisci, numquam
-                nam provident!
-            </p>
-        </article>
+        <!-- Company Story Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="text-center mb-5">
+                            <h2 class="display-6 fw-bold mb-4">Our Story</h2>
+                            <p class="lead text-muted">
+                                Founded in 2015 by a group of passionate game enthusiasts, BoardCraft Studios has been
+                                at the forefront of innovative board game design and development. What started as a
+                                small collective of friends sharing ideas around a kitchen table has evolved into a
+                                respected studio known for creating engaging, memorable gaming experiences.
+                            </p>
+                            <p class="text-muted">
+                                Over the past decade, we've combined our love for storytelling, strategic gameplay, and
+                                beautiful design to create games that challenge minds, spark imagination, and most
+                                importantly, bring people together. Our commitment to quality and innovation has earned
+                                us recognition in the gaming community and countless hours of joy shared around tables
+                                worldwide.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold mb-3">What We Do</h2>
+                    <p class="lead text-muted">From concept to completion, we handle every aspect of board game creation
+                    </p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-gear-wide-connected fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Game Development</h3>
+                            <p class="text-muted small">Complete game development from concept to finished product,
+                                handling every technical aspect.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-lightbulb fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Game Design</h3>
+                            <p class="text-muted small">Creating engaging games from scratch with innovative mechanics
+                                and compelling gameplay.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-clipboard-check fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Playtesting</h3>
+                            <p class="text-muted small">Rigorous testing processes to ensure balanced, fun, and polished
+                                gameplay experiences.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-display fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Digital Implementations</h3>
+                            <p class="text-muted small">Tabletop Simulator modding and digital versions of your board
+                                games.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-box-seam fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Product Design</h3>
+                            <p class="text-muted small">Professional product design ensuring your game looks great and
+                                functions perfectly.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-journal-text fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Rulebook Editing</h3>
+                            <p class="text-muted small">Clear, concise rulebook editing to make your games easy to learn
+                                and teach.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-palette fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Graphic Design & Illustration</h3>
+                            <p class="text-muted small">Professional graphic design and illustration coordination to
+                                bring your vision to life.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-currency-dollar fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Crowdfunding Consulting</h3>
+                            <p class="text-muted small">Expert guidance for successful crowdfunding campaigns from
+                                strategy to execution.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-building fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Manufacturing Consulting</h3>
+                            <p class="text-muted small">Navigate the manufacturing process with our expertise in
+                                production and quality control.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 60px; height: 60px;">
+                                <i class="bi bi-truck fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold">Fulfillment Consulting</h3>
+                            <p class="text-muted small">Streamlined fulfillment strategies to get your games to
+                                customers efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="services.html" class="btn btn-primary btn-lg px-5">
+                        Learn More About Our Services
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold mb-3">Meet Our Team</h2>
+                    <p class="lead text-muted">The creative minds behind BoardCraft Studios</p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <!-- Team Member 1 -->
+                    <div class="col-md-6 ">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center d-grid">
+                                <div class="bg-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                                    style="width: 80px; height: 80px;">
+                                    <i class="bi bi-person fs-1 text-white"></i>
+                                </div>
+                                <h3 class="card-title fw-bold">Argyris (or Argy) Poungouras</h3>
+                                <p class="text-primary small fw-semibold">job title</p>
+                                <p class="card-text small text-muted">
+                                    A game designer and developer based in Athens, Greece. He worked on design and
+                                    development on games such as Darkest Dungeon: The Board Game and Super Fantasy Brawl
+                                    published by Mythic Games, Back O’ Beyond by Fabled Games and numerous other
+                                    projects. He draws inspiration from all aspects of gaming, be it board games, video
+                                    games, miniature games or card games. He loves creating original works as well as
+                                    adapting existing IPs to the board game medium. Argy is very active in his local
+                                    designer and playtest communities and always keeps himself updated on the state of
+                                    the industry.
+
+                                </p>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-linkedin me-1"></i>
+                                    Connect
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="col-md-6 ">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center d-grid">
+                                <div class="bg-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                                    style="width: 80px; height: 80px;">
+                                    <i class="bi bi-person fs-1 text-white"></i>
+                                </div>
+                                <h3 class="card-title fw-bold">JamesH (Dimitris Chatzidimitriou)</h3>
+                                <p class="text-primary small fw-semibold">job title</p>
+                                <p class="card-text small text-muted">
+                                    A game developer from Greece, currently living in Finland. An avid gamer with
+                                    diverse tastes, a passion for improving designs, and a soft-spot for legacy/campaign
+                                    games. He studied Mathematics and has a MSc in Computer Science and a PhD in
+                                    Parameterized Algorithms and Complexity. He worked for Drawlab Entertainment between
+                                    2014-2018 and was the lead developer for LudiCreations between 2018-2024.
+                                </p>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-linkedin me-1"></i>
+                                    Connect
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="col-md-6 ">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center d-grid">
+                                <div class="bg-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                                    style="width: 80px; height: 80px;">
+                                    <i class="bi bi-person fs-1 text-white"></i>
+                                </div>
+                                <h3 class="card-title fw-bold">Mike Georgiou</h3>
+                                <p class="text-primary small fw-semibold">CEO</p>
+                                <p class="card-text small text-muted">
+                                    A game designer from Athens, Greece, who’s always exploring both classic and modern
+                                    game mechanics in search of fresh ideas. He loves creating games that are easy to
+                                    pick up and aims in their replayability. He has worked on over 50 projects as a
+                                    freelance designer/developer on Fiverr.com with a flawless 5/5 rating and with
+                                    numerous heartwarming critics. When he’s not designing, you’ll probably find him
+                                    playing music or climbing.
+                                </p>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-linkedin me-1"></i>
+                                    Connect
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-5 hero-gradient text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="display-5 fw-bold mb-3">Ready to Create Your Game?</h2>
+                        <p class="lead mb-4">Let's discuss how we can bring your board game vision to life with our
+                            decade of expertise.</p>
+                        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                            <a href="contact.html" class="btn btn-light btn-lg px-4">
+                                Get in Touch
+                            </a>
+                            <a href="services.html" class="btn btn-outline-light btn-lg px-4">
+                                Our Services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 text-center">
         <small>&copy; <span></span> BoardCraft Studios. All rights reserved.</small>
