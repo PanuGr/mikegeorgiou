@@ -6,7 +6,7 @@
     X-Content-Type-Options= 'nosniff'
     Referrer-Policy= 'no-referrer'
     # Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-    # Cache-Control = "public, max-age=31536000, immutable"
+     Cache-Control = "public, max-age=31536000, immutable"
     Strict-Transport-Security= "max-age=31536000; includeSubDomains; preload"
 
     content-security-policy = '''
@@ -18,3 +18,16 @@
 package = "netlify-plugin-debug-cache"
 [[plugins]]
 package = "netlify-plugin-image-optim"
+
+# Config for the Netlify Build Plugin: netlify-plugin-minify-html
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+
+  # Optionally, override the default options for the minification
+  # https://github.com/kangax/html-minifier#options-quick-reference
+  [plugins.inputs.minifierOptions]
+    removeComments = true
+    collapseWhitespace = true
+    conservativeCollapse = true
+    minifyCSS = true
+    minifyJS = true
