@@ -15,6 +15,7 @@ https://briegercreative.com/
 - netlify.toml (config file)
 - game1.md (file for each game)
 - games.json
+- 404.html
 
 ## Games
 **To add a new game:**
@@ -25,7 +26,7 @@ https://briegercreative.com/
 5. Add "gameName.md" to the games array in index.html.
 
 ## Optimizations for each page 
-- compressed images
+- compressed images/ netlify image 
 - add preconnect and dns-prefetch
 - organize the head 
 
