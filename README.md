@@ -23,3 +23,11 @@ https://briegercreative.com/
 3. Change the front matter (id, title, image, shortDescription).
 4. Write their content in Markdown.
 5. Add "gameName.md" to the games array in index.html.
+
+## Optimizations for each page 
+- compressed images
+- add preconnect and dns-prefetch
+- organize the head 
+
+
+
