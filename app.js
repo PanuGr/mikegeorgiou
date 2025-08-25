@@ -1,7 +1,8 @@
 // This contains javascript functionality shared among all pages
 
 //Sets the year in footer
-document.querySelector("footer small span").textContent = new Date().getFullYear();
+document.querySelector("footer p span").textContent = new Date().getFullYear();
+
 
   //Don't touch. This reads the markdown files
   function parseFrontMatter(content) {
