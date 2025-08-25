@@ -1,0 +1,50 @@
+{
+    "name": "BoardCraft Studios",
+    "logo": "logo.png",
+    "favicon": "favicon.ico",
+    "socialLinks": [
+        {
+            "name": "Linkedin",
+            "url": "#",
+            "iconClass": "bi-linkedin"
+        },
+        {
+            "name": "Facebook",
+            "url": "#",
+            "iconClass": "bi-facebook"
+        },
+        {
+            "name": "Discord",
+            "url": "#",
+            "iconClass": "bi-discord"
+        },
+        {
+            "name": "Youtube",
+            "url": "#",
+            "iconClass": "bi-youtube"
+        },
+        {
+            "name": "Instagram",
+            "url": "#",
+            "iconClass": "bi-instagram"
+        }
+    ],
+    "navigation": [
+        {
+            "name": "Home",
+            "url": "index.html"
+        },
+        {
+            "name": "About",
+            "url": "about.html"
+        },
+        {
+            "name": "Services",
+            "url": "services.html"
+        },
+        {
+            "name": "Contact",
+            "url": "contact.html"
+        }
+    ]
+}
