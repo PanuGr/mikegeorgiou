@@ -10,12 +10,15 @@ https://briegercreative.com/
 - services
 - contact
 - games (Javascript creates for each game)
-- privacy.md
-- robots.txt
+- privacy
 - netlify.toml (config file)
-- game1.md (file for each game)
-- games.json
+- games/ (folder for each game file.md)
 - 404.html
+- img/ (folder for local images)
+Shared functionality among all pages:
+- site.json
+- style.css
+- app.js
 
 ## Games
 **To add a new game:**
@@ -23,12 +26,8 @@ https://briegercreative.com/
 2. The fileName should be the same with the id
 3. Change the front matter (id, title, image, shortDescription).
 4. Write their content in Markdown.
-5. Add "gameName.md" to the games array in index.html.
+5. Add "gameName.md" to the games array in index.html. You'll find it in the bottom of the file, inside the scipt tag
 
-## Optimizations for each page 
-- compressed images/ netlify image 
-- add preconnect and dns-prefetch
-- organize the head 
 
 
 
