@@ -26,16 +26,6 @@
   <script defer src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
   <script defer src="app.js"></script>
   <style>
-    #content{
-      img{
-        max-width: 50%;
-        margin-top: 4rem;
-      }
-      h2{
-        font-size: xx-large;
-      }
-    }
-
     .hero-section {
       padding: 120px 0 80px;
       background-size: cover;
@@ -60,10 +50,27 @@
       z-index: 2;
     }
 
-    main img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
+    main {
+      p:has(img){text-align: center;}
+      img {
+        max-width: 50%;
+        margin: 2rem auto;
+        border-radius: 1rem;
+      }
+
+      h1 {
+        margin-top: 5rem;
+        font-size: 3rem;
+      }
+
+      h2,
+      p {
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        font-size: xx-large;
+      }
     }
   </style>
 </head>
@@ -80,12 +87,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-         <!-- loads from Javascript -->
+          <!-- loads from Javascript -->
         </ul>
       </div>
     </div>
   </nav>
-  <!-- Hero Section -->
+  <!-- Hero Section 
   <header class="hero-section text-white" id="hero-section">
     <div class="container hero-content">
       <div class="row align-items-center">
@@ -115,23 +122,23 @@
         </div>
       </div>
     </div>
-  </header>
+  </header>-->
 
   <main class="m-auto w-50 lh-lg" id="content"></main>
 
   <footer class="bg-dark text-white pt-5 text-center">
     <section class="d-flex flex-wrap justify-content-around align-items-center">
-        <p class="m-0">&copy; <span></span> BoardCraft Studios. All rights reserved.</p>
-        <div>
-            <ul class="d-flex gap-1">
-               <!-- loads from Javascript -->
-            </ul>
-        </div>
+      <p class="m-0">&copy; <span></span> BoardCraft Studios. All rights reserved.</p>
+      <div>
+        <ul class="d-flex gap-1">
+          <!-- loads from Javascript -->
+        </ul>
+      </div>
     </section>
     <hr>
     <small class="text-center">Made by <a href="http://digisolutech.netlify.app"
-            target="_blank">DigiSolutech</a></small>
-</footer>
+        target="_blank">DigiSolutech</a></small>
+  </footer>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const gameId = urlParams.get("id");
@@ -141,14 +148,14 @@
       .then(txt => {
         const { attributes, body } = parseFrontMatter(txt);
         // Update hero section
-        document.getElementById('attributes-title').textContent = attributes.title;
-        document.getElementById('attributes-subtitle').textContent = attributes.shortDescription;
-        document.getElementById('attributes-players').textContent = attributes.players + " Players";
-        document.getElementById('attributes-duration').textContent = attributes.time + " min";
-        document.getElementById('attributes-rating').textContent = attributes.rating;
-        // Set hero background image
-        const heroSection = document.getElementById('hero-section');
-        heroSection.style.backgroundImage = `url('${attributes.image}')`;
+        /*  document.getElementById('attributes-title').textContent = attributes.title;
+         document.getElementById('attributes-subtitle').textContent = attributes.shortDescription;
+         document.getElementById('attributes-players').textContent = attributes.players + " Players";
+         document.getElementById('attributes-duration').textContent = attributes.time + " min";
+         document.getElementById('attributes-rating').textContent = attributes.rating;
+         // Set hero background image
+         const heroSection = document.getElementById('hero-section');
+         heroSection.style.backgroundImage = `url('${attributes.image}')`; */
         document.getElementById("content").innerHTML = marked.parse(body);
       });
   </script>
