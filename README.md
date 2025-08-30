@@ -28,6 +28,12 @@ Shared functionality among all pages:
 4. Write their content in Markdown.
 5. Add "gameName.md" to the games array in index.html. You'll find it in the bottom of the file, inside the scipt tag
 
-
+## Site Details
+The file site.json contains information shared among all pages:
+- navigation links
+- logo
+- site's title
+- social links in footer
+If you change these values, they change automatically in every page.
 
 
