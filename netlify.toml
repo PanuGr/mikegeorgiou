@@ -11,6 +11,8 @@
     frame-ancestors 'none';
     object-src 'none';
     '''
+[[plugins]]
+package = "@netlify/plugin-sitemap"
 
 [[plugins]]
 package = "netlify-plugin-image-optim"
