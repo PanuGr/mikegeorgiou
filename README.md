@@ -36,4 +36,6 @@ The file site.json contains information shared among all pages:
 - social links in footer
 If you change these values, they change automatically in every page.
 
+## Style.css & App.js
+These files contain styling and javascript code which is shared among all pages
 
