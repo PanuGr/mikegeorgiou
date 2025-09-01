@@ -16,6 +16,8 @@ footer {
 
 .hero-gradient {
     background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+    padding-top: 120px;
+    padding-bottom: 80px;
 }
 
 @media (prefers-reduced-motion: reduce) {
